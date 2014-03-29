@@ -15,7 +15,7 @@ var credentials = {
 
 var command = "PRAISE HELIX!";
 
-app.get("/:secret:/command", function(req, res) {
+app.get("/:secret/:command", function(req, res) {
   if (req.params.secret === secret) {
     command = req.params.command;
     res.send("Received " + command);
