@@ -18,6 +18,7 @@ var command = "PRAISE HELIX!";
 app.get("/:secret:/command", function(req, res) {
   if (req.params.secret === secret) {
     command = req.params.command;
+    res.send("Received " + command);
   }
   else {
     res.send("Nope!");
