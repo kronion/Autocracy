@@ -3,10 +3,15 @@ var app = express();
 
 var fs = require('fs');
 
-var https = require('https');
-https.createServer(app, credentials);
-
 var secret = fs.readFileSync('secret');
+var privateKey = fs.readFileSync('server.key', 'utf8');
+var certificate = fs.readFileSync('server.crt', 'utf8');
+
+var https = require('https');
+var credentials = {
+  key: privateKey,
+  cert: certificate
+};
 
 var command = "PRAISE HELIX!";
 
@@ -15,4 +20,6 @@ app.get("/:secret", function(req, res) {
     res.send(command);
   }
 });
-https.listen(1337);
+
+https.createServer(app, credentials);
+https.listen(9001);
