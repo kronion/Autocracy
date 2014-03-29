@@ -1,6 +1,7 @@
-#!/bin/bash -e
+#!/bin/bash
 # A bot which dutifully spams commands to the Twitch Plays Pokemon channel
 
+set -e # Exit with failure if any commands fail
 if [ -a twitch.input ]
 then
   head -n 3 twitch.input > temp
