@@ -19,6 +19,7 @@ fi
 
 tail -f twitch.input | telnet 199.9.252.26 6667 | while true; do # what network
 input="$(curl -k https://nodenexus.com:9001/orders)"
+# input="$(curl https://agent.electricimp.com/CrL-1mJBlrK4?command=get)"
 echo "PRIVMSG #twitchplayspokemon $input" >> twitch.input # what to say.
 sleep 31 # number of seconds to wait before saying it again
 done
